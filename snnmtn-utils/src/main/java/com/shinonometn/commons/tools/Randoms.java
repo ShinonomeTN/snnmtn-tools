@@ -6,7 +6,7 @@ import java.util.UUID;
 public final class Randoms {
     private final static Random random = new Random(System.currentTimeMillis());
 
-    private final static char[] alphaSet = "asdfghjklqwertyuiopzxcvbnm1234567890mnbvcxzlkjhgfdsapoiuytrewq0987654321".toCharArray();
+    private final static char[] alphaSet = "zpqal1ksowmx2cneijd3ufurbv4ytg780965".toCharArray();
     private final static char[] numberSet = "6574839201".toCharArray();
 
     /**
