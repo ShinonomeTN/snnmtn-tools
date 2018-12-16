@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
  */
 public abstract class InMemoryStorageAdapter<T> implements InMemoryStorage {
 
+    private final String globalScope;
     private final String domain;
 
     /**
@@ -23,22 +24,16 @@ public abstract class InMemoryStorageAdapter<T> implements InMemoryStorage {
     /**
      * The main content type of this storage
      */
-    protected final Class<?> contentType;
+    protected final Class<T> contentType;
 
-    public InMemoryStorageAdapter(String domain) {
+    public InMemoryStorageAdapter(String globalScope,String domain) {
         this.domain = domain;
-        this.storeKey = String.format("%s.%s",getStoreKey(),domain);
+        this.globalScope = globalScope;
+
+        this.storeKey = String.format("%s.%s", globalScope,domain);
 
         this.contentType = getSelfMainType();
     }
-
-    /**
-     * Generate the store key for identify the storage, it usually
-     * for Redis key or Map key
-     *
-     * @return store key
-     */
-    protected abstract String getStoreKey();
 
     @Override
     public String domain() {
@@ -54,7 +49,7 @@ public abstract class InMemoryStorageAdapter<T> implements InMemoryStorage {
      * */
 
     @SuppressWarnings("unchecked")
-    private Class<?> getSelfMainType() {
+    private Class<T> getSelfMainType() {
         Type mainType = getClass().getGenericSuperclass();
         ParameterizedType parameterizedType = (ParameterizedType) mainType;
         return (Class<T>) parameterizedType.getActualTypeArguments()[0];

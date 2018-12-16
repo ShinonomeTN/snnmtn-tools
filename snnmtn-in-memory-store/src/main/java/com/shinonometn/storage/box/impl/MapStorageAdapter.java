@@ -8,8 +8,8 @@ public abstract class MapStorageAdapter<T> extends InMemoryStorageAdapter<T> {
 
     private MapStorageProvider mapStorageProvider;
 
-    public MapStorageAdapter(String domain, MapStorageProvider mapStorageProvider) {
-        super(domain);
+    public MapStorageAdapter(String globalScope,String domain, MapStorageProvider mapStorageProvider) {
+        super(globalScope,domain);
         this.mapStorageProvider = mapStorageProvider;
     }
 
@@ -28,5 +28,10 @@ public abstract class MapStorageAdapter<T> extends InMemoryStorageAdapter<T> {
 
     public Collection<String> scopes(){
         return mapStorageProvider.scopes(storeKey);
+    }
+
+    @Override
+    public void clear() {
+        mapStorageProvider.clear(storeKey);
     }
 }

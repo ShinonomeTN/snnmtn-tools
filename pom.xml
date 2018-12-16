@@ -13,6 +13,7 @@
         <module>snnmtn-utils</module>
         <module>snnmtn-web</module>
         <module>snnmtn-in-memory-store</module>
+        <module>snnmtn-in-memory-store-redis-provider</module>
     </modules>
 
     <properties>

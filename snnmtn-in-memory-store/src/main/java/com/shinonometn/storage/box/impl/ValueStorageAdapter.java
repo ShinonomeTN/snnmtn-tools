@@ -6,8 +6,8 @@ public abstract class ValueStorageAdapter<T> extends InMemoryStorageAdapter<T> {
 
     private ValueStorageProvider valueStorageProvider;
 
-    public ValueStorageAdapter(String domain, ValueStorageProvider valueStorageProvider) {
-        super(domain);
+    public ValueStorageAdapter(String globalScope,String domain, ValueStorageProvider valueStorageProvider) {
+        super(globalScope,domain);
         this.valueStorageProvider = valueStorageProvider;
     }
 

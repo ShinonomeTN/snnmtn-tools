@@ -2,6 +2,11 @@ package com.shinonometn.storage.box;
 
 import java.util.Collection;
 
+/**
+ * MapStorageProvider interface
+ *
+ * Provide a storage for complex collection
+ */
 public interface MapStorageProvider {
 
     /**
@@ -22,7 +27,7 @@ public interface MapStorageProvider {
      * @param <T>         bean type
      * @return bean
      */
-    <T> T get(String storeKey, String scope, Class<?> contentType);
+    <T> T get(String storeKey, String scope, Class<T> contentType);
 
     /**
      * Get a collection of stored bean
@@ -32,7 +37,7 @@ public interface MapStorageProvider {
      * @param <T>         bean type
      * @return Collection of bean
      */
-    <T> Collection<T> values(String storeKey, Class<?> contentType);
+    <T> Collection<T> values(String storeKey, Class<T> contentType);
 
     /**
      * Get a collection of stored keys
@@ -42,5 +47,10 @@ public interface MapStorageProvider {
      */
     Collection<String> scopes(String storeKey);
 
-
+    /**
+     * Clear all stored info
+     *
+     * @param storeKey main store scope
+     */
+    void clear(String storeKey);
 }
