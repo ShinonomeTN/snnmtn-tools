@@ -1,6 +1,5 @@
 package com.shinonometn.storage.box.provider;
 
-import com.shinonometn.storage.box.impl.ValueStorageAdapter;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,27 +7,20 @@ import static org.junit.Assert.*;
 public class SimpleStorageProviderTest {
 
     @Test
-    public void store() {
+    public void clear() {
+        SimpleStorageProvider simpleStorageProvider = new SimpleStorageProvider();
+        simpleStorageProvider.store("mapping","item","item");
+        simpleStorageProvider.clear("mapping");
 
+        assertTrue(simpleStorageProvider.isEmpty());
     }
 
     @Test
-    public void get() {
-    }
+    public void storeNull() {
+        SimpleStorageProvider simpleStorageProvider = new SimpleStorageProvider();
+        simpleStorageProvider.store("item","null");
+        simpleStorageProvider.store("item",null);
 
-    @Test
-    public void mapStore() {
-    }
-
-    @Test
-    public void mapGet() {
-    }
-
-    @Test
-    public void values() {
-    }
-
-    @Test
-    public void scopes() {
+        assertTrue(simpleStorageProvider.isEmpty());
     }
 }

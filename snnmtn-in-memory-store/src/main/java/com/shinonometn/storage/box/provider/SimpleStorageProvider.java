@@ -4,8 +4,8 @@ import com.shinonometn.storage.box.MapStorageProvider;
 import com.shinonometn.storage.box.ValueStorageProvider;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -23,13 +23,14 @@ public class SimpleStorageProvider implements ValueStorageProvider, MapStoragePr
 
     @Override
     public void store(String storeKey, Object bean) {
-        storage.put(storeKey, bean);
+        if(bean == null) storage.remove(storeKey);
+        else storage.put(storeKey, bean);
     }
 
     @Override
     public <T> T get(String storeKey, Class<T> typeInfo) {
         Object target = storage.get(storeKey);
-        return target == null ? null : typeInfo.cast(target);
+        return (target == null || Objects.equals(target,"")) ? null : typeInfo.cast(target);
     }
 
     /*
@@ -69,15 +70,19 @@ public class SimpleStorageProvider implements ValueStorageProvider, MapStoragePr
         storage.entrySet().stream()
                 .filter(e -> e.getKey().startsWith(mapPrefix(storeKey)))
                 .forEach(e -> {
-                    if(e.getValue() != null) storage.remove(e.getValue());
+                    if (e.getValue() != null) storage.remove(e.getKey());
                 });
     }
 
+    public boolean isEmpty(){
+        return storage.isEmpty();
+    }
+
     /*
-    *
-    * Private procedure
-    *
-    * */
+     *
+     * Private procedure
+     *
+     * */
 
     private String mapKey(String storeKey, String scope) {
         return MAP + storeKey + ":" + scope;
