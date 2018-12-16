@@ -10,7 +10,7 @@ package com.shinonometn.storage.box;
  * It is using in ReSSIM course data system for storing and managing term info, visitor statistics,
  * school calendar and other global information.
  *
- * It recommenced to inherit the InMemoryStorageAdapter for usage
+ * It recommenced to inherit the children of InMemoryStorageAdapter for usage
  *
  */
 public interface InMemoryStorage {
