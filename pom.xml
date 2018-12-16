@@ -12,6 +12,7 @@
     <modules>
         <module>snnmtn-utils</module>
         <module>snnmtn-web</module>
+        <module>snnmtn-in-memory-store</module>
     </modules>
 
     <properties>
