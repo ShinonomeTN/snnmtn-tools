@@ -10,15 +10,15 @@ import java.io.InputStream;
 public final class JSON {
     private JSON(){}
 
-    private final static ObjectMapper objecrMapper = new ObjectMapper();
+    private final static ObjectMapper objectMapper = new ObjectMapper();
 
     public static ObjectMapper jsonMapper(){
-        return objecrMapper;
+        return objectMapper;
     }
 
     public static <T> T readFromJson(InputStream fileInputStream, TypeReference<T> typeReference) throws IOException {
 
-        return objecrMapper.readValue(fileInputStream,typeReference);
+        return objectMapper.readValue(fileInputStream,typeReference);
     }
 
     public static void writeToFile(File file, Object object) throws IOException {
@@ -27,6 +27,6 @@ public final class JSON {
                 throw new IllegalStateException("File could not be updated.");
             }
         }
-        objecrMapper.writeValue(file,object);
+        objectMapper.writeValue(file,object);
     }
 }

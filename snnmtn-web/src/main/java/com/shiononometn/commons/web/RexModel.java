@@ -8,17 +8,24 @@ public class RexModel<T> {
     private String error;
     private T data;
 
-    public RexModel<T> withMessage(String message){
+    public RexModel() {
+    }
+
+    public RexModel(T data) {
+        this.data = data;
+    }
+
+    public RexModel<T> withMessage(String message) {
         this.message = message;
         return this;
     }
 
-    public RexModel<T> withError(String error){
+    public RexModel<T> withError(String error) {
         this.error = error;
         return this;
     }
 
-    public RexModel<T> withData(T data){
+    public RexModel<T> withData(T data) {
         this.data = data;
         return this;
     }
@@ -45,5 +52,17 @@ public class RexModel<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public static <A> RexModel<A> success() {
+        return new RexModel<A>().withMessage("success");
+    }
+
+    public static <A> RexModel<A> error(String error) {
+        return new RexModel<A>().withError(error);
+    }
+
+    public static <A> RexModel<A> data(A content) {
+        return new RexModel<A>().withData(content);
     }
 }

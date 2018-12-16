@@ -2,21 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>snnmtn-tools</artifactId>
-        <groupId>com.shinonometn</groupId>
-        <version>1.2-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.shinonometn</groupId>
     <artifactId>snnmtn-utils</artifactId>
     <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <codec-version>1.10</codec-version>
+        <jackson.version>2.7.0</jackson.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>shinonometn-repo-release</id>
+            <name>ShinonomeTN.com</name>
+            <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>shinonometn-repo-snapshot</id>
+            <name>ShinonomeTN.com</name>
+            <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
+            <version>${codec-version}</version>
         </dependency>
     </dependencies>
 
