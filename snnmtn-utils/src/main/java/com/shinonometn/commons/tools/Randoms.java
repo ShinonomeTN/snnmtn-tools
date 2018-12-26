@@ -62,11 +62,34 @@ public final class Randoms {
      * @param length how long
      * @return random number
      */
-    public static String randomNumber(int length) {
+    public static String randomNumberInString(int length) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
             stringBuilder.append(numberSet[random.nextInt(numberSet.length)]);
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     *
+     * Get random int in bound
+     *
+     * @param min bottom of bound
+     * @param max ceiling of bound
+     * @return int in bound
+     */
+    public static int randomInt(int min, int max) {
+        if(min > max) throw new IllegalArgumentException("The smaller one could not bigger than the bigger one");
+        return random.nextInt(max - min) + min;
+    }
+
+    /**
+     *
+     * Get the random
+     *
+     * @return
+     */
+    public static Random random(){
+        return random;
     }
 }
