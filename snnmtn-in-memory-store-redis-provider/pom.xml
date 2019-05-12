@@ -5,18 +5,18 @@
     <parent>
         <artifactId>snnmtn-tools</artifactId>
         <groupId>com.shinonometn</groupId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>snnmtn-in-memory-store-redis-provider</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
 
     <dependencies>
         <dependency>
             <groupId>com.shinonometn</groupId>
             <artifactId>snnmtn-in-memory-store</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
 
         <dependency>

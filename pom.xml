@@ -6,7 +6,7 @@
 
     <groupId>com.shinonometn</groupId>
     <artifactId>snnmtn-tools</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -22,7 +22,7 @@
             <id>public</id>
             <activation>
                 <property>
-                    <name>for</name>
+                    <name>deployTarget</name>
                     <value>public</value>
                 </property>
             </activation>
@@ -40,7 +40,7 @@
             <id>inner</id>
             <activation>
                 <property>
-                    <name>for</name>
+                    <name>deployTarget</name>
                     <value>inner</value>
                 </property>
             </activation>
