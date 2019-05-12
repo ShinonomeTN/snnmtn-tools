@@ -14,19 +14,6 @@
         <jackson.version>2.7.0</jackson.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>shinonometn-repo-release</id>
-            <name>ShinonomeTN.com</name>
-            <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>shinonometn-repo-snapshot</id>
-            <name>ShinonomeTN.com</name>
-            <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
         <dependency>

@@ -16,18 +16,48 @@
         <module>snnmtn-in-memory-store-redis-provider</module>
     </modules>
 
-    <distributionManagement>
-        <repository>
-            <id>shinonometn-repo-release</id>
-            <name>ShinonomeTN.com</name>
-            <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>shinonometn-repo-snapshot</id>
-            <name>ShinonomeTN.com</name>
-            <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <profiles>
+        <!-- When publish to public repo, use this profile-->
+        <profile>
+            <id>public</id>
+            <activation>
+                <property>
+                    <name>for</name>
+                    <value>public</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>shinonometn-repo-public</id>
+                    <name>ShinonomeTN.com</name>
+                    <url>https://nexus.shinonometn.com/repository/maven-releases/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+
+        <!-- Publish to private repo, for test purpose -->
+        <profile>
+            <id>inner</id>
+            <activation>
+                <property>
+                    <name>for</name>
+                    <value>inner</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>shinonometn-repo-release</id>
+                    <name>ShinonomeTN.com</name>
+                    <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>shinonometn-repo-snapshot</id>
+                    <name>ShinonomeTN.com</name>
+                    <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <build>
         <pluginManagement>
