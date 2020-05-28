@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public final class Digests {
+    private Digests(){}
 
     private final static MessageDigest md5Digest;
     private final static MessageDigest sha1Digest;

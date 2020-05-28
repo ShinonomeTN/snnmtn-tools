@@ -1,6 +1,8 @@
 package com.shinonometn.commons.tools;
 
 public final class Numbers {
+    private Numbers() {}
+
     /**
      *
      * Scale a double to integer

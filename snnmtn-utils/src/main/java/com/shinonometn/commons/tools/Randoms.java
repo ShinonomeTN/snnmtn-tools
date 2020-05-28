@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.UUID;
 
 public final class Randoms {
+    private Randoms() {}
+
     private final static ThreadLocal<Random> randomPool = ThreadLocal.withInitial(() -> new Random(System.currentTimeMillis()));
 
     private final static char[] alphaSet = "zpqal1ksowmx2cneijd3ufurbv4ytg780965".toCharArray();

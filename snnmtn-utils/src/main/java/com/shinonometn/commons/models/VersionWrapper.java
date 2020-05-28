@@ -1,4 +1,4 @@
-package com.shinonometn.commons.tools;
+package com.shinonometn.commons.models;
 
 /**
  * A object that store an object with timestamp

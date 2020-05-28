@@ -7,18 +7,38 @@ import java.util.stream.Collectors;
 public final class Names {
     private Names(){}
 
-    public static List<String> getShortClassNameList(Collection<Class<?>> classList) {
+    /**
+     *
+     * Get short class name from a list of Class
+     *
+     * @param classList Classes
+     * @return list of short name
+     */
+    public static List<String> classShortNamesFrom(Collection<Class<?>> classList) {
         return classList.stream()
                 .map(Class::getName)
-                .map(Names::getShortClassName)
+                .map(Names::classShortNameFrom)
                 .collect(Collectors.toList());
     }
 
-    public static String getShortClassName(String className){
+    /**
+     *
+     * Get short class name of a class
+     *
+     * @param className class name
+     * @return short class name
+     */
+    public static String classShortNameFrom(String className){
         return className.substring(className.lastIndexOf(".") + 1,className.length());
     }
 
-    public static String getFileExtendName(String filename){
+    /**
+     * Get file extension name
+     *
+     * @param filename file name
+     * @return file extension name
+     */
+    public static String fileExtensionNameFrom(String filename){
         return filename.substring(filename.lastIndexOf("."),filename.length());
     }
 }

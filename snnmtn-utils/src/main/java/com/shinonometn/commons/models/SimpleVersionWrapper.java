@@ -1,4 +1,7 @@
-package com.shinonometn.commons.tools;
+package com.shinonometn.commons.models;
+
+import com.shinonometn.commons.tools.CurrentTime;
+import com.shinonometn.commons.tools.VersionWrapper;
 
 /**
  *

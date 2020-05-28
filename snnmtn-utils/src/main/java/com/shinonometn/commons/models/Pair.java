@@ -1,4 +1,4 @@
-package com.shinonometn.commons.tools;
+package com.shinonometn.commons.models;
 
 import java.util.Collection;
 import java.util.Map;
