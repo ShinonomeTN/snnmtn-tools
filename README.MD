@@ -4,6 +4,6 @@ Basic tools for us:
 - Randoms
 - Date & Time
 - MD5 and SHA1
-- Object wrapper with version : VersionWrapper
+- Object wrapper with versions : VersionWrapper
 - String (Planed)
-- (More in future...)
+- (More in the future...)

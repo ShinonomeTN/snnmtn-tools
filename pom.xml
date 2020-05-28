@@ -9,6 +9,21 @@
     <version>1.2</version>
     <packaging>pom</packaging>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>shinonometn-repo</id>
+            <name>ShinonomeTN.com</name>
+            <url>https://nexus.shinonometn.com/repository/shinonometn-repo/</url>
+            <snapshots><enabled>true</enabled></snapshots>
+            <releases><enabled>true</enabled></releases>
+        </repository>
+    </repositories>
+
     <modules>
         <module>snnmtn-utils</module>
         <module>snnmtn-web</module>
@@ -16,48 +31,33 @@
         <module>snnmtn-in-memory-store-redis-provider</module>
     </modules>
 
-    <profiles>
-        <!-- When publish to public repo, use this profile-->
-        <profile>
-            <id>public</id>
-            <activation>
-                <property>
-                    <name>deployTarget</name>
-                    <value>public</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <repository>
-                    <id>shinonometn-repo-public</id>
-                    <name>ShinonomeTN.com</name>
-                    <url>https://nexus.shinonometn.com/repository/maven-releases/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
+    <properties>
+        <junit.version>4.13</junit.version>
+    </properties>
 
-        <!-- Publish to private repo, for test purpose -->
-        <profile>
-            <id>inner</id>
-            <activation>
-                <property>
-                    <name>deployTarget</name>
-                    <value>inner</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <repository>
-                    <id>shinonometn-repo-release</id>
-                    <name>ShinonomeTN.com</name>
-                    <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>shinonometn-repo-snapshot</id>
-                    <name>ShinonomeTN.com</name>
-                    <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+    <distributionManagement>
+        <repository>
+            <id>shinonometn-repo-release</id>
+            <name>ShinonomeTN.com</name>
+            <url>https://nexus.shinonometn.com/repository/shinonometn-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>shinonometn-repo-snapshot</id>
+            <name>ShinonomeTN.com</name>
+            <url>https://nexus.shinonometn.com/repository/shinonometn-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
