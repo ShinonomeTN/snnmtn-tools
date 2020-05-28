@@ -31,9 +31,8 @@ public final class Digests {
      * @param upperCase if use uppercase string as result
      * @param strings contents
      * @return string
-     * @throws NoSuchAlgorithmException
      */
-    public static String getMD5(boolean upperCase, String... strings) throws NoSuchAlgorithmException {
+    public static String getMD5(boolean upperCase, String... strings) {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (String s : strings) stringBuilder.append(s);
