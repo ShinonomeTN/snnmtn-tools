@@ -2,8 +2,11 @@
 
 Basic tools for us:
 - Randoms
-- Date & Time
+- Date & Time (in progress)
 - MD5 and SHA1
-- Object wrapper with versions : VersionWrapper
-- String (Planed)
+- String (in progress)
+- Numbers
+- Mappings
+- Bean Validator
+- Names (Class name and file name utils)
 - (More in the future...)
