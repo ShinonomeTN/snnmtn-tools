@@ -32,6 +32,15 @@ public class Pair<A, B> {
         this.b = b;
     }
 
+    @Override
+    public String toString() {
+        return "Pair{" +
+                getA() +
+                " to " +
+                getB() +
+                "}";
+    }
+
     public static <A, B> Pair<A, B> of(A a, B b) {
         return new Pair<>(a, b);
     }
